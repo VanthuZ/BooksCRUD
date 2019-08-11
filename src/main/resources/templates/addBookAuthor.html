@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="../static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <h1>Books CRUD Apllication</h1>
+
+    <header class="navigation">
+        <ul class="navigaton__list">
+            <li class="navigation__item"><a href="index.html">Main page</a></li>
+            <li class="navigation__item"><a href="books.html">Books list</a></li>
+            <li class="navigation__item"><a href="authors.html">Authors list</a></li>
+            <li class="navigation__item"><a href="addBookAuthor.html">Add new Book/Author</a></li>
+        </ul>
+    </header>
+
+    <h3>Add new Book</h4>
+        <form class="addForm">
+            <label>Title</label><input type='text'>
+            <label>Author</label>
+            <select multiple="multiple">
+                <option>Dummy</option>
+                <option>Dummy2</option>
+            </select>
+            <label>Pages</label><input type='text'>
+            <label>Publication date</label><input type="date">
+            <input type="submit" value="Add">
+
+        </form>
+
+        <h3>Add new Author</h4>
+            <form class="addForm">
+                <label>Name</label><input type='text'>
+                <label>Last name</label><input type='text'>
+                <input type="submit" value="Add">
+            </form>
+
+
+            <footer>Vanthus github.com/VanthuZ</footer>
+
+</body>
