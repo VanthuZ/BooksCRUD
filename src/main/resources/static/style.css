@@ -1,0 +1,46 @@
+.about {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+}
+
+.about__header {
+    color: skyblue;
+}
+
+.navigation {
+    position: relative;
+    text-decoration: none;
+}
+
+.navigaton__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    padding: 5px;
+}
+
+.navigation__item {
+    display: block;
+    padding: 10px;
+}
+
+.navigation__item>a {
+    text-decoration: none;
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 20px;
+    color: deepskyblue;
+    margin: 5px;
+    padding: 5px;
+}
+
+footer {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+}
