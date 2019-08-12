@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -24,8 +24,12 @@
         </ul>
     </header>
 
-    <h3>Add new Book</h4>
-        <form class="addForm">
+    <h3>Add new Book</h3>
+        <form
+            class="addForm"
+            th:object="${book}"
+            th:method="post"
+        >
             <label>Title</label><input type='text'>
             <label>Author</label>
             <select multiple="multiple">
@@ -38,10 +42,15 @@
 
         </form>
 
-        <h3>Add new Author</h4>
-            <form class="addForm">
-                <label>Name</label><input type='text'>
-                <label>Last name</label><input type='text'>
+        <h3>Add new Author</h3>
+            <form
+                class="addForm"
+                th:action="@{/addBookAuthor}"
+                th:object="${author}"
+                th:method="post"
+            >
+                <label>Name</label><input th:field="*{name}" type='text'>
+                <label>Last name</label><input th:field="*{lastName}" type='text'>
                 <input type="submit" value="Add">
             </form>
 
