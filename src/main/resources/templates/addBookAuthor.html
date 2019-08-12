@@ -27,17 +27,22 @@
     <h3>Add new Book</h3>
         <form
             class="addForm"
+            th:action="@{/addBook}"
             th:object="${book}"
             th:method="post"
         >
-            <label>Title</label><input type='text'>
+            <label>Title</label><input th:field="*{title}" type='text'>
             <label>Author</label>
-            <select multiple="multiple">
-                <option>Dummy</option>
-                <option>Dummy2</option>
+            <select th:field="*{authors}" multiple="multiple">
+                <option
+                    th:each="a : ${authorList}"
+                    th:value="${a.id}"
+                    th:text="${a}">
+                </option>
+
             </select>
-            <label>Pages</label><input type='text'>
-            <label>Publication date</label><input type="date">
+            <label>Pages</label><input th:field="*{pages}" type='text'>
+            <label>Publication date</label><input th:field="*{publicationDate}" type="date">
             <input type="submit" value="Add">
 
         </form>
@@ -45,7 +50,7 @@
         <h3>Add new Author</h3>
             <form
                 class="addForm"
-                th:action="@{/addBookAuthor}"
+                th:action="@{/addAuthor}"
                 th:object="${author}"
                 th:method="post"
             >

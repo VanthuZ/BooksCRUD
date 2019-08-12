@@ -3,6 +3,7 @@ package pl.vanthus.BookCRUD.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,6 +29,7 @@ public class Book {
     )
     private List<Author> authors;
     private int pages;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate publicationDate;
 
 }
