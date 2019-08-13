@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link href="../static/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -17,10 +17,10 @@
 
     <header class="navigation">
         <ul class="navigaton__list">
-            <li class="navigation__item"><a href="index.html">Main page</a></li>
-            <li class="navigation__item"><a href="books.html">Books list</a></li>
-            <li class="navigation__item"><a href="authors.html">Authors list</a></li>
-            <li class="navigation__item"><a href="addBookAuthor.html">Add new Book/Author</a></li>
+            <li class="navigation__item"><a th:href="@{/}">Main page</a></li>
+            <li class="navigation__item"><a th:href="@{/books}">Books list</a></li>
+            <li class="navigation__item"><a th:href="@{/authors}">Authors list</a></li>
+            <li class="navigation__item"><a th:href="@{/addBookAuthor}">Add new Book/Author</a></li>
         </ul>
     </header>
 
