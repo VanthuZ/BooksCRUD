@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,38 @@
         </ul>
     </header>
 
+    <table >
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Publication Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody th:each="book : ${bookList}">
+        <tr>
+            <td th:text="${book.getId()}">id </td>
+            <td th:text="${book.getTitle()}">title</td>
+            <td th:text="${book.getAuthors()}">authors</td>
+            <td th:text="${book.getPages()}">pages</td>
+            <td th:text="${book.getPublicationDate()}" >publication date</td>
+            <td>
+                <form  th:metod="get" th:action="@{'/editAuthor/' + ${book.getId()}}">
+                    <input type="submit" value="Edit">
+                </form>
+                <form th:metod="get" th:action="@{'/deleteAuthor/' + ${book.getId()}}">
+                    <input  type="submit" value="Delete">
+                </form>
 
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
 
 
     <footer>Vanthus github.com/VanthuZ</footer>

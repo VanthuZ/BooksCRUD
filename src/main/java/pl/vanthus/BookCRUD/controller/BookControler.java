@@ -11,6 +11,7 @@ import pl.vanthus.BookCRUD.model.Book;
 import pl.vanthus.BookCRUD.repository.AuthorRepository;
 import pl.vanthus.BookCRUD.repository.BookRepository;
 import pl.vanthus.BookCRUD.service.AuthorService;
+import pl.vanthus.BookCRUD.service.BookService;
 
 
 @Controller
@@ -19,12 +20,15 @@ public class BookControler {
     AuthorRepository authorRepository;
     BookRepository bookRepository;
     AuthorService authorService;
+    BookService bookService;
 
     @Autowired
-    public BookControler(AuthorRepository authorRepository, BookRepository bookRepository, AuthorService authorService) {
+    public BookControler(AuthorRepository authorRepository, BookRepository bookRepository,
+                         AuthorService authorService, BookService bookService) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
         this.authorService = authorService;
+        this.bookService = bookService;
     }
 
 
@@ -33,7 +37,6 @@ public class BookControler {
         model.addAttribute("book", new Book());
         model.addAttribute("authorList", authorService.getAuthorList());
         model.addAttribute("author", new Author());
-
         return "addBookAuthor";
     }
 
@@ -48,6 +51,12 @@ public class BookControler {
     public String addBook(@ModelAttribute Book book){
         bookRepository.save(book);
         return "redirect:/";
+    }
+
+    @GetMapping("/books")
+    public String showBook(Model model){
+        model.addAttribute("bookList", bookService.getBookList());
+        return "books";
     }
 
 }
