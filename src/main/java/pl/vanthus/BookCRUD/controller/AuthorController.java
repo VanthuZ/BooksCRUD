@@ -42,6 +42,21 @@ public class AuthorController {
         return "redirect:/authors";
     }
 
+    @GetMapping("/editAuthor/{authorId}")
+    public String updateAuthor(@PathVariable Long authorId, Model model){
+        Author author = authorService.getAuthorById(authorId);
+        model.addAttribute("author", author);
+        return "editAuthor";
+    }
+
+    @PutMapping("/editAuthor/{authorId}")
+    public String updateAuthor(@PathVariable Long authorId, @ModelAttribute Author author){
+        authorService.updateAurhor(authorId, author);
+        return "redirect:/authors";
+    }
+
+
+
 
 
 }

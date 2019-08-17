@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<h1>Books CRUD Apllication</h1>
+
+<header class="navigation">
+    <ul class="navigaton__list">
+        <li class="navigation__item"><a th:href="@{/}">Main page</a></li>
+        <li class="navigation__item"><a th:href="@{/books}">Books list</a></li>
+        <li class="navigation__item"><a th:href="@{/authors}">Authors list</a></li>
+        <li class="navigation__item"><a th:href="@{/addBookAuthor}">Add new Book/Author</a></li>
+    </ul>
+</header>
+
+
+
+<h3>Edit Author</h3>
+<form
+        class="addForm"
+        th:action="@{'/editAuthor/' + ${author.getId()}}"
+        th:object="${author}"
+        th:method="put"
+>
+    <label>Name</label><input th:field="*{name}" type='text'>
+    <label>Last name</label><input th:field="*{lastName}" type='text'>
+    <input type="submit" value="Edit">
+</form>
+
+
+<footer>Vanthus github.com/VanthuZ</footer>
+
+</body>

@@ -59,4 +59,20 @@ public class BookControler {
         return "redirect:/books";
     }
 
+
+    @GetMapping("/editBook/{bookId}")
+    public String updateBook(@PathVariable Long bookId, Model model){
+        Book book = bookService.getBookById(bookId);
+        model.addAttribute("book", book);
+        model.addAttribute("authorList", authorService.getAuthorList());
+        return "editBook";
+    }
+
+    @PutMapping("/editBook/{bookId}")
+    public String updateBook(@PathVariable Long bookId, @ModelAttribute Book book){
+        bookService.updateBook(bookId, book);
+        return "redirect:/books";
+    }
+
+
 }

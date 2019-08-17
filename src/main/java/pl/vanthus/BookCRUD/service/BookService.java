@@ -25,4 +25,19 @@ public class BookService {
     public void deleteBookById(Long id){
         bookRepository.deleteById(id);
     }
+
+    public Book getBookById(Long bookId) {
+        return bookRepository.getOne(bookId);
+    }
+
+    public void updateBook(Long id, Book updatedBook){
+        Book book = bookRepository.getOne(id);
+
+        book.setAuthors(updatedBook.getAuthors());
+        book.setPages(updatedBook.getPages());
+        book.setPublicationDate(updatedBook.getPublicationDate());
+        book.setTitle(updatedBook.getTitle());
+
+        bookRepository.save(book);
+    }
 }

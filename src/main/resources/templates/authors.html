@@ -40,7 +40,7 @@
                 <td th:text="${author.getName()}" >name</td>
                 <td th:text="${author.getLastName()}" >lastName</td>
                 <td>
-                    <form th:method="put" th:action="@{'/editAuthor/' + ${author.getId()}}">
+                    <form th:method="get" th:action="@{'/editAuthor/' + ${author.getId()}}">
                         <input type="submit" value="Edit">
                     </form>
                     <form th:method="delete" th:action="@{'/deleteAuthor/' + ${author.getId()}}">
