@@ -43,10 +43,10 @@
             <td th:text="${book.getPages()}">pages</td>
             <td th:text="${book.getPublicationDate()}" >publication date</td>
             <td>
-                <form  th:metod="get" th:action="@{'/editAuthor/' + ${book.getId()}}">
+                <form  th:method="put" th:action="@{'/editBook/' + ${book.getId()}}">
                     <input type="submit" value="Edit">
                 </form>
-                <form th:metod="get" th:action="@{'/deleteAuthor/' + ${book.getId()}}">
+                <form th:method="delete" th:action="@{'/deleteBook/' + ${book.getId()}}">
                     <input  type="submit" value="Delete">
                 </form>
 

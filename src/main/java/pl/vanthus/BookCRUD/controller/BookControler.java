@@ -3,9 +3,7 @@ package pl.vanthus.BookCRUD.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.vanthus.BookCRUD.model.Author;
 import pl.vanthus.BookCRUD.model.Book;
 import pl.vanthus.BookCRUD.repository.AuthorRepository;
@@ -40,11 +38,7 @@ public class BookControler {
         return "addBookAuthor";
     }
 
-    @PostMapping("/addAuthor")
-    public String addAuthor(@ModelAttribute Author author){
-        authorRepository.save(author);
-        return "redirect:/";
-    }
+
 
 
     @PostMapping("/addBook")
@@ -57,6 +51,12 @@ public class BookControler {
     public String showBook(Model model){
         model.addAttribute("bookList", bookService.getBookList());
         return "books";
+    }
+
+    @DeleteMapping("/deleteBook/{bookId}")
+    public String deleteAuthor(@PathVariable Long bookId){
+        bookService.deleteBookById(bookId);
+        return "redirect:/books";
     }
 
 }
